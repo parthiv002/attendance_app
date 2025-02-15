@@ -27,6 +27,16 @@ class SubjectAdapter(private val subjects:MutableList<Subject>) :RecyclerView.Ad
         val subject=subjects[position]
         holder.tvSubjectName.text=subject.name
         updatePercentage(subject.attendClass,subject.totalClass,holder.tvAttendClass,holder.tvTotalClass,holder.tvPercentage)
+
+        holder.btnYes.setOnClickListener {
+            subjects[position].attendClass++
+            subjects[position].totalClass++
+            updatePercentage(subject.attendClass,subject.totalClass,holder.tvAttendClass,holder.tvTotalClass,holder.tvPercentage)
+        }
+        holder.btnNo.setOnClickListener {
+            subjects[position].totalClass++
+            updatePercentage(subject.attendClass,subject.totalClass,holder.tvAttendClass,holder.tvTotalClass,holder.tvPercentage)
+        }
     }
 
     private fun updatePercentage(attendClass: Int, totalClass: Int, tvAttendClass: TextView?, tvTotalClass: TextView?, tvPercentage: TextView?) {
