@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.attendance_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.attendance_app"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        viewBinding=true
     }
 }
 
